@@ -8,10 +8,5 @@ build:
   stage: build
   script:
 #    - pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
-    - pip install --no-cache-dir --index-url https://pypi.tuna.tsinghua.edu.cn/simple itchat requests schedule itchat itchat-uos==1.5.0.dev0
-
-deploy:
-  stage: deploy
-  script:
+    - pip install --no-cache-dir --index-url https://pypi.tuna.tsinghua.edu.cn/simple itchat requests schedule itchat-uos==1.5.0.dev0
     - python login_and_send_message_999.py
-
