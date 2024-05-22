@@ -1,0 +1,7 @@
+version: '3'
+services:
+  wechat-bot:
+    build: .
+    volumes:
+      - .:/app
+    command: python /app/bot.py

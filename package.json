@@ -1,0 +1,11 @@
+{
+    "name": "wechaty-puppet-paimon",
+    "version": "0.0.1",
+    "description": "Demo for paimon",
+    "author": "you",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "qrcode-terminal": "^0.12.0",
+        "wechaty": "^1.20.2"
+    }
+}

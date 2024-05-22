@@ -1,0 +1,16 @@
+image: python:3.9-slim
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - pip install --upgrade pip
+    - pip install --no-cache-dir itchat requests schedule
+
+deploy:
+  stage: deploy
+  script:
+    - python login_and_send_message_999.py
