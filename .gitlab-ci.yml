@@ -1,12 +1,22 @@
-image: python:3.9-slim
+# 变量
+variables:
+  API_NAME: 'itchat-uos'
 
 stages:
-  - build
+#  - build
   - deploy
 
-build:
-  stage: build
-  script:
+#build:
+#  stage: build
+#  script:
 #    - pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
-    - pip install --no-cache-dir --index-url https://pypi.tuna.tsinghua.edu.cn/simple itchat requests schedule itchat-uos==1.5.0.dev0
-    - python login_and_send_message_999.py
+#    - pip install --no-cache-dir --index-url https://pypi.tuna.tsinghua.edu.cn/simple itchat requests schedule itchat-uos==1.5.0.dev0
+
+deploy:
+  stage: deploy
+  script:
+    - echo "=============== 开始部署任务  ==============="
+    - docker build --build-arg BUILD_DIR=. -t $API_NAME:last .
+    - if [ "$(docker ps -aq --filter name=$API_NAME)" ]; then docker rm -f $API_NAME;fi
+    - docker run -d --network=my-network --name=$API_NAME $API_NAME:last
+    - echo "=============== 执行结束 ==================="
