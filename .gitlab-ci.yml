@@ -13,6 +13,7 @@ stages:
 #    - pip install --no-cache-dir --index-url https://pypi.tuna.tsinghua.edu.cn/simple itchat requests schedule itchat-uos==1.5.0.dev0
 
 deploy:
+  image: docker
   stage: deploy
   script:
     - echo "=============== 开始部署任务  ==============="
