@@ -43,7 +43,7 @@ def auto_login_and_send_msg():
 
 if __name__ == '__main__':
     # 每天定时登录并发送消息
-    schedule.every().day.at("20:15").do(auto_login_and_send_msg)
+    schedule.every().day.at("20:18").do(auto_login_and_send_msg)
 
     while True:
         schedule.run_pending()

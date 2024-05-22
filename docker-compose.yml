@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  wechat:
+    build: .
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - .:/app
+    command: ["python", "login_and_send_message_999.py"]
