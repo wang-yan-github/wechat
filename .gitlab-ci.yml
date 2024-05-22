@@ -2,9 +2,9 @@
 variables:
   API_NAME: 'itchat-uos'
 
-cache:
-  paths:
-    - .cache/pip
+#cache:
+#  paths:
+#    - .cache/pip
 
 stages:
 #  - build
