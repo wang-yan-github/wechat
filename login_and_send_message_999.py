@@ -7,8 +7,7 @@ import requests
 import schedule
 import time
 
-itchat.auto_login(enableCmdQR=True, hotReload=True)  # 使用 enableCmdQR 参数生成二维码
-
+itchat.auto_login(enableCmdQR=True, hotReload=True)
 
 def send_msg(userName):
     info = '感悟：' + get_text()
@@ -42,7 +41,7 @@ def job():
 
 if __name__ == '__main__':
     # 每天定时检查
-    schedule.every().day.at("19:13").do(job)
+    schedule.every().day.at("19:40").do(job)
 
     while True:
         schedule.run_pending()
