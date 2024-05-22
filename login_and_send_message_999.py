@@ -1,4 +1,4 @@
-import itchat_uos as itchat
+import itchat
 from itchat.content import *
 import requests
 import schedule
@@ -42,6 +42,7 @@ def auto_login_and_send_msg():
     itchat.logout()
 
 if __name__ == '__main__':
+    auto_login_and_send_msg()
     # 每天定时登录并发送消息
     schedule.every().day.at("20:18").do(auto_login_and_send_msg)
 
