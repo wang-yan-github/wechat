@@ -7,7 +7,7 @@ import re
 
 def auto_login_and_send_msg():
     try:
-        itchat.auto_login(hotReload=True)
+        itchat.auto_login(hotReload=True,enableCmdQR=-1)
     except Exception as e:
         print(f"Login failed: {e}")
         return
