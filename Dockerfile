@@ -2,10 +2,9 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-#COPY requirements.txt requirements.txt
-RUN pip uninstall -y
-RUN pip install --no-cache-dir --index-url https://pypi.tuna.tsinghua.edu.cn/simple requests schedule itchat-uos==1.5.0.dev0
-#RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+# 使用清华镜像源安装依赖
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 COPY . .
 
