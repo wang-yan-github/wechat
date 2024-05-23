@@ -9,7 +9,7 @@ import time
 
 def auto_login_and_send_msg():
     try:
-        itchat.auto_login(hotReload=True, enableCmdQR=2)
+        itchat.auto_login(hotReload=False, enableCmdQR=2)  # 每次启动要求重新扫描二维码
     except Exception as e:
         print(f"Login failed: {e}")
         return
@@ -39,14 +39,10 @@ def auto_login_and_send_msg():
             print('消息已发送')
 
     job()
-    itchat.logout()
 
 if __name__ == '__main__':
-    # This ensures we login first
     auto_login_and_send_msg()
-
-    # Schedule the daily job
-    schedule.every().day.at("09:10").do(auto_login_and_send_msg)
+    schedule.every().day.at("09:35").do(auto_login_and_send_msg)
 
     while True:
         schedule.run_pending()
