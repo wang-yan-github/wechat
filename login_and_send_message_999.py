@@ -7,6 +7,7 @@ import requests
 import schedule
 import time
 
+
 def auto_login_and_send_msg():
     try:
         itchat.auto_login(hotReload=False, enableCmdQR=2)  # 每次启动要求重新扫描二维码
@@ -33,12 +34,20 @@ def auto_login_and_send_msg():
 
     def job():
         weekday = time.localtime().tm_wday
-        if weekday in [0, 1, 2]:
+        # 0：星期一
+        # 1：星期二
+        # 2：星期三
+        # 3：星期四
+        # 4：星期五
+        # 5：星期六
+        # 6：星期日
+        if weekday in [0, 2, 4, 3]:
             userName = get_user_name('测试感悟发送1')
             send_msg(userName)
             print('消息已发送')
 
     job()
+
 
 if __name__ == '__main__':
     auto_login_and_send_msg()
