@@ -29,7 +29,9 @@ def auto_login_and_send_msg():
         ins = itchat.instanceList[0]
         fullContact = ins.memberList + ins.chatroomList
         for chatroom in fullContact:
+            print(f"chatroom: {chatroom}")
             if chatroom['NickName'] == NickName:
+                print(f"chatroom.UserName: {chatroom.UserName}")
                 return chatroom.UserName
 
     def job():
@@ -51,7 +53,7 @@ def auto_login_and_send_msg():
 
 if __name__ == '__main__':
     auto_login_and_send_msg()
-    schedule.every().day.at("10:00").do(auto_login_and_send_msg)
+    schedule.every().day.at("14:30").do(auto_login_and_send_msg)
 
     while True:
         schedule.run_pending()
