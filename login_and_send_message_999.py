@@ -53,7 +53,7 @@ def auto_login_and_send_msg():
 
 if __name__ == '__main__':
     auto_login_and_send_msg()
-    schedule.every().day.at("14:30").do(auto_login_and_send_msg)
+    schedule.every().day.at("14:40").do(auto_login_and_send_msg)
 
     while True:
         schedule.run_pending()
