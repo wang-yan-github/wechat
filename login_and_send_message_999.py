@@ -1,10 +1,11 @@
+import re
+import sys
+import json
 import itchat
 from itchat.content import *
 import requests
 import schedule
 import time
-import re
-
 
 def auto_login_and_send_msg():
     try:
@@ -31,9 +32,7 @@ def auto_login_and_send_msg():
                 return chatroom.UserName
 
     def job():
-        # 获取星期几
         weekday = time.localtime().tm_wday
-        # 如果今天是星期一、星期二或星期三
         if weekday in [0, 1, 2]:
             userName = get_user_name('测试感悟发送1')
             send_msg(userName)
@@ -42,11 +41,12 @@ def auto_login_and_send_msg():
     job()
     itchat.logout()
 
-
 if __name__ == '__main__':
+    # This ensures we login first
     auto_login_and_send_msg()
-    # 每天定时登录并发送消息
-    schedule.every().day.at("09:03").do(auto_login_and_send_msg)
+
+    # Schedule the daily job
+    schedule.every().day.at("09:10").do(auto_login_and_send_msg)
 
     while True:
         schedule.run_pending()
