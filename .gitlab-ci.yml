@@ -11,6 +11,7 @@ stages:
   - deploy
 
 build:
+  image: python:3.9-slim
   stage: build
   script:
     - pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
