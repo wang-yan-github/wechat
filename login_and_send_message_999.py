@@ -59,11 +59,11 @@ def auto_login_and_send_msg():
         except Exception as e:
             print(f"Job failed: {e}")
 
-    # 首次启动时立即执行一次
-    auto_login_and_send_msg()
+    job()
 
-    # 设置定时任务，每天的 14:40 执行一次
-    schedule.every().day.at("20:40").do(auto_login_and_send_msg)
+if __name__ == '__main__':
+    auto_login_and_send_msg()
+    schedule.every().day.at("14:40").do(auto_login_and_send_msg)
 
     while True:
         schedule.run_pending()
