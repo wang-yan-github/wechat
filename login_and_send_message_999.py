@@ -63,7 +63,7 @@ def auto_login_and_send_msg():
     auto_login_and_send_msg()
 
     # 设置定时任务，每天的 14:40 执行一次
-    schedule.every().day.at("14:40").do(auto_login_and_send_msg)
+    schedule.every().day.at("20:40").do(auto_login_and_send_msg)
 
     while True:
         schedule.run_pending()
