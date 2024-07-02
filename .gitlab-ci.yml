@@ -1,6 +1,6 @@
 # 变量
 variables:
-  API_NAME: 'itchat-uos'
+  API_NAME: 'a-itchat-uos'
 
 #cache:
 #  paths:
