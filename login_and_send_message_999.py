@@ -52,8 +52,8 @@ def auto_login_and_send_msg():
     def job():
         try:
             weekday = time.localtime().tm_wday
-            if weekday in [0, 2, 4, 3]:
-                userName = get_user_name('测试感悟发送1')
+            if weekday in [0, 1, 2, 3]:
+                userName = get_user_name('DNF-TouchFish')
                 if userName:
                     send_msg(userName)
                     print('消息已发送')
@@ -64,7 +64,7 @@ def auto_login_and_send_msg():
     auto_login_and_send_msg()
 
     # 设置定时任务，每天的 14:40 执行一次
-    schedule.every().day.at("20:05").do(auto_login_and_send_msg)
+    schedule.every().day.at("20:10").do(auto_login_and_send_msg)
 
     while True:
         schedule.run_pending()
