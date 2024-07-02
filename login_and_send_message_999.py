@@ -61,6 +61,9 @@ def auto_login_and_send_msg():
 
     job()
 
+    # 首次启动时立即执行一次
+    auto_login_and_send_msg()
+
 if __name__ == '__main__':
     auto_login_and_send_msg()
     schedule.every().day.at("20:00").do(auto_login_and_send_msg)
