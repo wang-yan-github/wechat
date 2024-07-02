@@ -51,7 +51,7 @@ def auto_login_and_send_msg():
     def job():
         try:
             weekday = time.localtime().tm_wday
-            if weekday in [0, 2, 4, 3]:
+            if weekday in [0, 2, 4, 6]:
                 userName = get_user_name('测试感悟发送1')
                 if userName:
                     send_msg(userName)
@@ -59,10 +59,10 @@ def auto_login_and_send_msg():
         except Exception as e:
             print(f"Job failed: {e}")
 
-    job()
-
-if __name__ == '__main__':
+    # 首次启动时立即执行一次
     auto_login_and_send_msg()
+
+    # 设置定时任务，每天的 14:40 执行一次
     schedule.every().day.at("14:40").do(auto_login_and_send_msg)
 
     while True:
