@@ -15,7 +15,7 @@ def on_exit():
 
 def auto_login_and_send_msg():
     try:
-        itchat.auto_login(hotReload=True, enableCmdQR=True)  # 使用命令行显示二维码
+        itchat.auto_login(hotReload=True, enableCmdQR=2)  # 使用命令行显示二维码
     except Exception as e:
         print(f"Login failed: {e}")
         return
