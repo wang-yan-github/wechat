@@ -51,7 +51,7 @@ def auto_login_and_send_msg():
     def job():
         try:
             weekday = time.localtime().tm_wday
-            if weekday in [0, 2, 4, 6]:
+            if weekday in [0, 2, 4, 3]:
                 userName = get_user_name('测试感悟发送1')
                 if userName:
                     send_msg(userName)
