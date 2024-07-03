@@ -2,6 +2,7 @@ import re
 import sys
 import json
 import itchat
+import itchat_uos
 from itchat.content import *
 import requests
 import schedule
@@ -10,7 +11,7 @@ import time
 
 def auto_login_and_send_msg():
     try:
-        itchat.auto_login(hotReload=True, enableCmdQR=2)  # 每次启动要求重新扫描二维码
+        itchat_uos.auto_login(hotReload=True, enableCmdQR=2, loginMethod='pad')  # 每次启动要求重新扫描二维码
     except Exception as e:
         print(f"Login failed: {e}")
         return
