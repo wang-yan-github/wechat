@@ -6,7 +6,7 @@ WORKDIR /app
 # RUN pip uninstall -y '*'
 
 # 安装依赖项
-RUN pip install --no-cache-dir --index-url https://pypi.tuna.tsinghua.edu.cn/simple requests schedule itchat-uos==1.5.0.dev0
+RUN pip install --no-cache-dir --index-url https://pypi.tuna.tsinghua.edu.cn/simple requests schedule itchat-uos itchat-uos==1.5.0.dev0
 
 # 如果有使用 requirements.txt 的需要，可以取消注释以下行，并确保在项目中包含了 requirements.txt 文件。
 # COPY requirements.txt requirements.txt
